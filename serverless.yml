@@ -1,0 +1,37 @@
+org: vitorsoaresp
+app: aws-node-rest-api
+service: aws-node-rest-api
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    NODE_ENV: dev
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+package:
+  exclude:
+    - config/.env.stg
+    - config/.env.pro
+  include:
+    - config/.env.dev
+
+functions:
+  create:
+    handler: app/handler.create
+    events:
+      - http:
+          path: employees
+          method: post
+
+  find:
+    handler: app/handler.find
+    events:
+      - http:
+          path: employees
+          method: get

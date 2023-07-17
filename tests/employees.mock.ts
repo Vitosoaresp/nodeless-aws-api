@@ -35,3 +35,61 @@ export const create = {
 };
 
 export const createError = new Error("nome is required");
+
+export const getAVGHeadcount = [
+  {
+    data: "2020-03-01T00:00:00.000Z",
+    headcount: "0.00000000000000000000",
+  },
+  {
+    data: "2020-04-01T00:00:00.000Z",
+    headcount: "1.00000000000000000000",
+  },
+  {
+    data: "2021-06-01T00:00:00.000Z",
+    headcount: "1.00000000000000000000",
+  },
+  {
+    data: "2021-09-01T00:00:00.000Z",
+    headcount: "1.00000000000000000000",
+  },
+  {
+    data: "2021-11-01T00:00:00.000Z",
+    headcount: "1.00000000000000000000",
+  },
+  {
+    data: "2022-06-01T00:00:00.000Z",
+    headcount: "0.00000000000000000000",
+  },
+  {
+    data: "2022-08-01T00:00:00.000Z",
+    headcount: "1.00000000000000000000",
+  },
+];
+
+export const getTurnover = [
+  {
+    data: "2020-04-01T00:00:00.000Z",
+    turnover: "0",
+  },
+  {
+    data: "2021-06-01T00:00:00.000Z",
+    turnover: "2",
+  },
+  {
+    data: "2021-09-01T00:00:00.000Z",
+    turnover: "0",
+  },
+  {
+    data: "2021-11-01T00:00:00.000Z",
+    turnover: "1",
+  },
+  {
+    data: "2022-06-01T00:00:00.000Z",
+    turnover: "0",
+  },
+  {
+    data: "2022-08-01T00:00:00.000Z",
+    turnover: "0",
+  },
+];

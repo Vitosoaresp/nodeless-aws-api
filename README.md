@@ -30,7 +30,7 @@ Serverless: Typescript compiled.
 
 ## Deploy
 
-### To Test It Locally
+### To run localhost
 
 - Run `npm install` to install all the necessary dependencies.
 - Run `npm run dev` use serverless offline to test locally.
@@ -55,7 +55,7 @@ Serverless: Packaging service...
 Serverless: Excluding development dependencies...
 Serverless: Uploading CloudFormation file to S3...
 Serverless: Uploading artifacts...
-Serverless: Uploading service aws-node-rest-api-typescript.zip file to S3 (1.86 MB)...
+Serverless: Uploading service aws-node-rest-api-typescript.zip file to S3 (731.68 kB)...
 Serverless: Validating template...
 Serverless: Updating Stack...
 Serverless: Checking Stack update progress...
@@ -70,17 +70,25 @@ resources: 32
 api keys:
   None
 endpoints:
-  POST - https://xxxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/employees
   GET - https://xxxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/employees
+  GET - https://xxxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/employees/headcount/{manager}
+  GET - https://xxxxxxxxxxx.execute-api.us-east-1.amazonaws.com/dev/employees/turnover/{manager}
 functions:
-  create: aws-node-rest-api-typescript-dev-create
-  find: aws-node-rest-api-typescript-dev-find
+  find: aws-node-rest-api-dev-find
+  headcount: aws-node-rest-api-dev-headcount
+  turnover: aws-node-rest-api-dev-turnover
 layers:
   None
 Serverless: Removing old service artifacts from S3...
 Serverless: Run the "serverless" command to setup monitoring, troubleshooting and testing.
 ```
 
-## Scaling
+### Testing
 
-By default, AWS Lambda limits the total concurrent executions across all functions within a given region to 100. The default limit is a safety limit that protects you from costs due to potential runaway or recursive functions during initial development and testing. To increase this limit above the default, follow the steps in [To request a limit increase for concurrent executions](http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html#increase-concurrent-executions-limit).
+```
+$ npm run test
+
+# or
+
+$ npm test
+```

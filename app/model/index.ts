@@ -1,9 +1,15 @@
-import { create, getAll, getAVGHeadcount, getTurnover } from "./employees";
+import {
+  create,
+  getAVGHeadcount,
+  getAll,
+  getByEmail,
+  getTurnover,
+} from "./employees";
 
-export * from "./connection";
 export const employeeModel = {
   create,
   getAll,
   getAVGHeadcount,
   getTurnover,
+  getByEmail,
 };

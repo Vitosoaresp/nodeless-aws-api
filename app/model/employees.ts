@@ -155,3 +155,12 @@ export const getTurnover = async (manager: string): Promise<Turnover[]> => {
 
   return result.rows as Turnover[];
 };
+
+export const getByEmail = async (email: string): Promise<Employee> => {
+  await client.connect();
+  const result = await client.query(
+    `SELECT * FROM employees WHERE email = $1`,
+    [email]
+  );
+  return result.rows[0] as Employee;
+};

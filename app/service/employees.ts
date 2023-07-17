@@ -41,8 +41,14 @@ const getTurnover = async (manager: string) => {
   return result;
 };
 
+const getByEmail = async (email: string) => {
+  const employee = await employeeModel.getByEmail(email);
+  return { name: employee.nome, email: employee.email, role: employee.cargo };
+};
+
 export const employeesService = {
   getAll: getAllEmployeers,
   getAVGHeadcount,
   getTurnover,
+  getByEmail,
 };

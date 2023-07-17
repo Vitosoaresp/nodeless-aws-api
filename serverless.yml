@@ -46,3 +46,9 @@ functions:
       - http:
           path: employees/turnover/{manager}
           method: get
+  signIn:
+    handler: app/handler.signIn
+    events:
+      - http:
+          path: login
+          method: post

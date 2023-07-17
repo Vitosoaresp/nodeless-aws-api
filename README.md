@@ -24,7 +24,7 @@ Serverless: Typescript compiled.
 
 {
     "statusCode": 200,
-    "body": "{\"code\":0,\"message\":\"success\",\"data\":[{\"matricula\":16,\"status\":\"ativo\",\"nome\":\"nome\",\"email\":\"email@gmail.com\",\"email_do_gestor\":\"email@gmail.com\",\"data_de_admissao\":\"2020-04-25T03:00:00.000Z\",\"data_de_rescisao\":null,\"cargo\":\"Gerente\"}]},
+    "body": "{\"code\":0,\"message\":\"success\",\"data\":[{\"matricula\":16,\"status\":\"ativo\",\"nome\":\"nome\",\"email\":\"email@gmail.com\",\"email_do_gestor\":\"email@gmail.com\",\"data_de_admissao\":\"2020-04-25T03:00:00.000Z\",\"data_de_rescisao\":null,\"cargo\":\"Gerente\"}]}",
 }
 ```
 

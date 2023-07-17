@@ -23,20 +23,8 @@ Serverless: Using local tsconfig.json
 Serverless: Typescript compiled.
 
 {
-    "code": 0,
-    "message": "success",
-    "data": [
-      {
-        "matricula": 99,
-        "status": "ativo",
-        "nome": "nome",
-        "email": "email@gmail.com",
-        "email_do_gestor": "emaildogestor@gmail.com",
-        "data_de_admissao": "2020-04-25T00:00:00.000Z",
-        "data_de_rescisao": null,
-        "cargo": "Gerente"
-      },
-    ]
+    "statusCode": 200,
+    "body": "{\"code\":0,\"message\":\"success\",\"data\":[{\"matricula\":16,\"status\":\"ativo\",\"nome\":\"nome\",\"email\":\"email@gmail.com\",\"email_do_gestor\":\"email@gmail.com\",\"data_de_admissao\":\"2020-04-25T03:00:00.000Z\",\"data_de_rescisao\":null,\"cargo\":\"Gerente\"}]},
 }
 ```
 

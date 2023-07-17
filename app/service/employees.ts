@@ -1,37 +1,48 @@
-import { z } from "zod";
 import { employeeModel } from "../model";
-import { Employee } from "../types/employees";
-import { employeeSchema } from "../utils/validations";
+// import { z } from "zod";
+// import { Employee } from "../types/employees";
+// import { employeeSchema } from "../utils/validations";
 
-type EmployeeSchema = z.infer<typeof employeeSchema>;
+// type EmployeeSchema = z.infer<typeof employeeSchema>;
 
 const getAllEmployeers = async () => {
   const employees = await employeeModel.getAll();
   return employees;
 };
 
-const createEmployee = async (data: EmployeeSchema): Promise<Employee> => {
-  try {
-    employeeSchema.parse(data);
-    const formattedData = {
-      nome: data.nome,
-      status: data.status,
-      cargo: data.cargo,
-      email: data.email,
-      emailDoGestor: data.emailDoGestor,
-      dataDeAdmissao: new Date(data.dataDeAdmissao),
-      dataDeRescisao: data.dataDeRescisao
-        ? new Date(data.dataDeRescisao)
-        : null,
-    };
-    const employee = await employeeModel.create(formattedData);
-    return employee;
-  } catch (error) {
-    return error;
-  }
+// const createEmployee = async (data: EmployeeSchema): Promise<Employee> => {
+//   try {
+//     employeeSchema.parse(data);
+//     const formattedData = {
+//       nome: data.nome,
+//       status: data.status,
+//       cargo: data.cargo,
+//       email: data.email,
+//       emailDoGestor: data.emailDoGestor,
+//       dataDeAdmissao: new Date(data.dataDeAdmissao),
+//       dataDeRescisao: data.dataDeRescisao
+//         ? new Date(data.dataDeRescisao)
+//         : null,
+//     };
+//     const employee = await employeeModel.create(formattedData);
+//     return employee;
+//   } catch (error) {
+//     return error;
+//   }
+// };
+
+const getAVGHeadcount = async (manager: string) => {
+  const result = await employeeModel.getAVGHeadcount(manager);
+  return result;
+};
+
+const getTurnover = async (manager: string) => {
+  const result = await employeeModel.getTurnover(manager);
+  return result;
 };
 
 export const employeesService = {
   getAll: getAllEmployeers,
-  create: createEmployee,
+  getAVGHeadcount,
+  getTurnover,
 };

@@ -22,16 +22,27 @@ package:
     - config/.env.dev
 
 functions:
-  create:
-    handler: app/handler.create
-    events:
-      - http:
-          path: employees
-          method: post
-
+  # create:
+  #   handler: app/handler.create
+  #   events:
+  #     - http:
+  #         path: employees
+  #         method: post
   find:
     handler: app/handler.find
     events:
       - http:
           path: employees
+          method: get
+  headcount:
+    handler: app/handler.headcount
+    events:
+      - http:
+          path: employees/headcount/{manager}
+          method: get
+  turnover:
+    handler: app/handler.turnover
+    events:
+      - http:
+          path: employees/turnover/{manager}
           method: get

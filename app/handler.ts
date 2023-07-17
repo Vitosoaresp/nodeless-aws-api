@@ -10,12 +10,12 @@ dotenv.config({
   path: dotenvPath,
 });
 
-// import { employeeModel } from './model';
 import { employeesController } from "./controller/employees";
-// const booksController = new BooksController(books);
-
-export const create: Handler = (event: any, context: Context) => {
-  return employeesController.create(event, context);
-};
 
 export const find: Handler = () => employeesController.getAll();
+
+export const headcount: Handler = (event: any, context: Context) =>
+  employeesController.getHeadcount(event, context);
+
+export const turnover: Handler = (event: any, context: Context) =>
+  employeesController.getTurnover(event, context);

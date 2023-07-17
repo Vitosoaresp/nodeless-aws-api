@@ -18,3 +18,13 @@ export interface Employee {
   dataDeAdmissao: Date;
   dataDeRescisao?: Date;
 }
+
+export interface AVGHeadcount {
+  data: string;
+  headcount: string;
+}
+
+export interface Turnover {
+  data: string;
+  turnover: string;
+}

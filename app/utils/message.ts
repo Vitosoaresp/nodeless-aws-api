@@ -5,17 +5,29 @@ enum StatusCode {
   error = 400,
 }
 
+interface Headers {
+  [key: string]: string | boolean;
+}
+
 class Result {
   private statusCode: number;
   private code: number;
   private message: string;
   private data?: any;
+  private headers: Headers;
 
-  constructor(statusCode: number, code: number, message: string, data?: any) {
+  constructor(
+    statusCode: number,
+    code: number,
+    message: string,
+    data?: any,
+    headers?: Headers
+  ) {
     this.statusCode = statusCode;
     this.code = code;
     this.message = message;
     this.data = data;
+    this.headers = headers || {};
   }
 
   /**
@@ -24,6 +36,7 @@ class Result {
   bodyToString() {
     return {
       statusCode: this.statusCode,
+      headers: this.headers,
       body: JSON.stringify({
         code: this.code,
         message: this.message,
@@ -35,8 +48,11 @@ class Result {
 
 export class MessageUtil {
   static success(data: object): ResponseVO {
-    const result = new Result(StatusCode.success, 0, "success", data);
-
+    const headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+    };
+    const result = new Result(StatusCode.success, 0, "success", data, headers);
     return result.bodyToString();
   }
 

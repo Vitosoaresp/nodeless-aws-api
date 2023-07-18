@@ -10,7 +10,7 @@ dotenv.config({
   path: dotenvPath,
 });
 
-import { login } from "./controller/auth";
+import { authController } from "./controller/auth";
 import { employeesController } from "./controller/employees";
 
 export const find: Handler = () => employeesController.getAll();
@@ -21,5 +21,5 @@ export const headcount: Handler = (event: any, context: Context) =>
 export const turnover: Handler = (event: any, context: Context) =>
   employeesController.getTurnover(event, context);
 
-export const signIn: Handler = (event: any, context: Context) =>
-  login(event, context);
+export const login: Handler = (event: any, context: Context) =>
+  authController.signIn(event, context);
